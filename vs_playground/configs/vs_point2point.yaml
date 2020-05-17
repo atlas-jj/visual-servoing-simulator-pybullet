@@ -1,0 +1,35 @@
+simulation:
+  env_name: panda-point2point-v0
+  gui: True # False
+  debug: True # False, show debug windows
+  physics:
+    gravity: 9.8
+    timestep: 0.001
+    contact_erp: 0.2
+  robot:
+    base:
+      position: [0.0,0.0,0.0]
+      orientation: [0,0,0]  # Euler angles.
+    initial:
+      joints: [0,0.15,0,-1.65,0,1.7,2.32,0,0,0.02,0.02,0]  # 6dof + fingers (5 joints)
+  scene:
+    something: asfd #
+  cameras:
+    num_cams: 1
+    camera_1:
+      type: RGB # Depth, RGB-D, RGB
+      configuration: eye-to-hand  # eye-to-hand / eye-in-hand
+      image_width: 1080
+      image_height: 720
+      view:
+        eye_position: [0,0,0.25]
+        target_position: [0,0,0]
+        up_vector: [0,1,0]
+      projection:
+        fov: 80
+        near_plane: 0.01
+        far_plane: 0.16
+
+
+visual_servoing:
+  something: asfd #
