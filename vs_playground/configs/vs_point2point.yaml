@@ -1,7 +1,7 @@
 simulation:
   env_name: panda-point2point-v0
   gui: True # False
-  debug: True # False, show debug windows
+  debug: False # False, show debug windows
   physics:
     gravity: 9.8
     timestep: 0.001
@@ -11,7 +11,7 @@ simulation:
       position: [0.0,0.0,0.0]
       orientation: [0,0,0]  # Euler angles.
     initial:
-      joints: [0,0.15,0,-1.65,0,1.7,2.32,0,0,0.02,0.02,0]  # 6dof + fingers (5 joints)
+      joints: [-0.382,0.44,0.3564,-2.247,2.78626,0.58871,2.21,0,0,0.04,0.04,0]  # 6dof + fingers (5 joints)
   scene:
     something: asfd #
   cameras:

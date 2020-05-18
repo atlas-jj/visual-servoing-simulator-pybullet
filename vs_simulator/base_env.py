@@ -36,15 +36,14 @@ class BaseEnv(gym.Env):
             bullet_client = BulletClient(connection_mode=pybullet.GUI)
         else:
             bullet_client = BulletClient(connection_mode=pybullet.DIRECT)
-        # enable planar reflection?
+        # enable planar reflection
         bullet_client.configureDebugVisualizer(bullet_client.COV_ENABLE_PLANAR_REFLECTION, 1)
-        # enable shadows?
+        # enable shadows
         bullet_client.configureDebugVisualizer(bullet_client.COV_ENABLE_SHADOWS, 0)
         if self.configs['debug']:
             bullet_client.configureDebugVisualizer(bullet_client.COV_ENABLE_GUI, 1)
         else:
-            bullet_client.configureDebugVisualizer(bullet_client.COV_ENABLE_GUI, 1)
-
+            bullet_client.configureDebugVisualizer(bullet_client.COV_ENABLE_GUI, 0)
         bullet_client.setGravity(0, 0, -self.configs['physics']['gravity'])
         bullet_client.setPhysicsEngineParameter(
             fixedTimeStep=self.configs['physics']['timestep'],
@@ -54,6 +53,30 @@ class BaseEnv(gym.Env):
 
     def close(self):
         self.bc.disconnect()
+
+    def reset(self):
+        """
+        # reset robot to initial cofnigs.
+        # reset scene
+        :return:
+        """
+        raise NotImplementedError("")
+
+    def seed(self, seed=None):
+        if seed is not None:
+            seeding.np_random(abs(seed))
+        return [seed]
+
+    def get_reward(self):
+        raise NotImplementedError("")
+
+    def get_space_attributes(self):
+        raise NotImplementedError("")
+
+    def step(self, action):
+        raise NotImplementedError("")
+
+
 
 
 

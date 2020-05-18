@@ -13,7 +13,7 @@ lib_path = os.path.dirname(vs_simulator.__file__)
 """
 register(
     id='panda-point2point-v0',
-    entry_point='vs_simulator.panda_point2point_env:PandaPoint2PointEnv'
+    entry_point='vs_simulator.panda_p2p_env:PandaPoint2PointEnv'
 )
 
 
